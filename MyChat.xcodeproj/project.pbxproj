@@ -15,6 +15,9 @@
 		2B403E0B2527CC600082D098 /* MyChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403E0A2527CC600082D098 /* MyChatUITests.swift */; };
 		2B403E252527F6600082D098 /* ConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403E242527F6600082D098 /* ConversationsVC.swift */; };
 		2B403E3E2527FB0A0082D098 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B403E3D2527FB0A0082D098 /* Main.storyboard */; };
+		2B865FE9252A4AF30025E9EE /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FE8252A4AF30025E9EE /* LogInVC.swift */; };
+		2B865FF1252A4B070025E9EE /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FF0252A4B070025E9EE /* RegistrationVC.swift */; };
+		2B865FF6252A4E7B0025E9EE /* Exstenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FF5252A4E7B0025E9EE /* Exstenions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		2B403E0C2527CC600082D098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B403E242527F6600082D098 /* ConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsVC.swift; sourceTree = "<group>"; };
 		2B403E3D2527FB0A0082D098 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2B865FE8252A4AF30025E9EE /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		2B865FF0252A4B070025E9EE /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		2B865FF5252A4E7B0025E9EE /* Exstenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exstenions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,7 @@
 		2B403E212527F6000082D098 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2B865FE7252A36050025E9EE /* Authentication */,
 				2B403E242527F6600082D098 /* ConversationsVC.swift */,
 			);
 			path = Controller;
@@ -172,8 +179,18 @@
 		2B403E232527F60F0082D098 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2B865FF5252A4E7B0025E9EE /* Exstenions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2B865FE7252A36050025E9EE /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				2B865FE8252A4AF30025E9EE /* LogInVC.swift */,
+				2B865FF0252A4B070025E9EE /* RegistrationVC.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +325,9 @@
 			files = (
 				2B403DE92527CC5E0082D098 /* AppDelegate.swift in Sources */,
 				2B403DEB2527CC5E0082D098 /* SceneDelegate.swift in Sources */,
+				2B865FE9252A4AF30025E9EE /* LogInVC.swift in Sources */,
+				2B865FF6252A4E7B0025E9EE /* Exstenions.swift in Sources */,
+				2B865FF1252A4B070025E9EE /* RegistrationVC.swift in Sources */,
 				2B403E252527F6600082D098 /* ConversationsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,58 +19,17 @@ class LogInVC: UIViewController {
     }()
     
     private lazy var emailContainerView: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .clear
-        containerView.setHeight(height: 50.0)
-        
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "envelope")
-        imageView.tintColor = .white
-        
-        containerView.addSubview(imageView)
-        imageView.centerY(inView: containerView)
-        imageView.anchor(left: containerView.leftAnchor, paddingLeft: 8)
-        imageView.setDimensions(height: 24, width: 28)
-        
-        containerView.addSubview(emailTextField)
-        emailTextField.centerY(inView: containerView)
-        emailTextField.anchor(left: imageView.rightAnchor, right: containerView.rightAnchor, paddingLeft: 8)
-        
-        return containerView
+        return InputContainerView(image: UIImage(systemName: "envelope") ?? UIImage(), textField: emailTextField)
     }()
     
-    private lazy var passwordContainerView: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .clear
-        
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "lock")
-        imageView.tintColor = .white
-        
-        containerView.addSubview(imageView)
-        imageView.centerY(inView: containerView)
-        imageView.anchor(left: containerView.leftAnchor, paddingLeft: 8)
-        imageView.setDimensions(height: 28, width: 28)
-        
-        containerView.addSubview(passwordTextField)
-        passwordTextField.centerY(inView: containerView)
-        passwordTextField.anchor(left: imageView.rightAnchor, right: containerView.rightAnchor, paddingLeft: 8)
-        
-        containerView.setHeight(height: 50.0)
-        return containerView
+    private lazy var passwordContainerView: InputContainerView = {
+        return InputContainerView(image: UIImage(systemName: "lock") ?? UIImage(), textField: passwordTextField)
     }()
-    
-    private let emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Email"
-        textField.textColor = .white
-        return textField
-    }()
+        
+    private let emailTextField = CustomTextField(placeholder: "Email")
     
     private let passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Password"
-        textField.textColor = .white
+        let textField = CustomTextField(placeholder: "Password")
         textField.isSecureTextEntry = true
         return textField
     }()
@@ -79,9 +38,23 @@ class LogInVC: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.layer.cornerRadius = 5.0
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
-        button.backgroundColor = .systemRed
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
+        button.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        button.setTitleColor(.white, for: .normal)
         button.setHeight(height: 50.0)
+        return button
+    }()
+    
+    private let dontHaveAnAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ",
+                                                        attributes: [.font: UIFont.systemFont(ofSize: 16),
+                                                                     .foregroundColor: UIColor.white])
+        attributedTitle.append(NSAttributedString(string: "Sign Up",
+                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: 16),
+                                                               .foregroundColor: UIColor.white]))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
     
@@ -90,6 +63,12 @@ class LogInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    // MARK: - Selectors
+    @objc func handleShowSignUp() {
+        let controller = RegistrationVC()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Helpers
@@ -110,6 +89,10 @@ class LogInVC: UIViewController {
         
         view.addSubview(stack)
         stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+        
+        view.addSubview(dontHaveAnAccountButton)
+        dontHaveAnAccountButton.centerX(inView: view)
+        dontHaveAnAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
     
     // MARK: - Constraints

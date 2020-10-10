@@ -11,6 +11,8 @@ class LogInVC: UIViewController {
     
     // MARK: - Properties
     
+    private var loginViewModel = LogInViewModel()
+    
     private let iconImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "bubble.right")
@@ -42,6 +44,8 @@ class LogInVC: UIViewController {
         button.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.setHeight(height: 50.0)
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(handleLogIn), for: .touchUpInside)
         return button
     }()
     
@@ -71,6 +75,19 @@ class LogInVC: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    @objc func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            loginViewModel.email = sender.text
+        } else {
+            loginViewModel.password = sender.text
+        }
+        isFormValid()
+    }
+    
+    @objc func handleLogIn() {
+         print("DEBUG: Handle log in...")
+    }
+    
     // MARK: - Helpers
     func configureUI() {
         navigationController?.navigationBar.isHidden = true
@@ -93,6 +110,19 @@ class LogInVC: UIViewController {
         view.addSubview(dontHaveAnAccountButton)
         dontHaveAnAccountButton.centerX(inView: view)
         dontHaveAnAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
+        
+        emailTextField.addTarget(self, action: #selector(textDidChange(sender:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange(sender:)), for: .editingChanged)
+    }
+    
+    func isFormValid() {
+        if loginViewModel.formIsValid {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        }
     }
     
     // MARK: - Constraints

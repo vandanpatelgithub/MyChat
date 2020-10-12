@@ -16,6 +16,7 @@ class CustomTextField: UITextField {
         textColor = .white
         keyboardAppearance = .dark
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        autocapitalizationType = .none
     }
     
     required init?(coder: NSCoder) {

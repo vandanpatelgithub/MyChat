@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let reusableIdentifier = "ConversationCell"
 
@@ -15,6 +16,10 @@ class ConversationsVC: UIViewController {
     private let tableView = UITableView()
     
     // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        authenticateUser()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +28,25 @@ class ConversationsVC: UIViewController {
     
     // MARK: - Selectors
     @objc func showProfile() {
-        print("123")
+        logout()
+    }
+    
+    // MARK: - API
+    func authenticateUser() {
+        if Auth.auth().currentUser?.uid == nil  {
+            presentLogInScreen()
+        } else {
+            print("DEBUG: user is logged in. Configure controller")
+        }
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            presentLogInScreen()
+        } catch let error {
+            print("DEBUG: Error signing out \(error.localizedDescription)")
+        }
     }
     
     // MARK: - Helper Methods
@@ -36,6 +59,15 @@ class ConversationsVC: UIViewController {
         
         let image = UIImage(systemName: "person.circle.fill")
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showProfile))
+    }
+    
+    func presentLogInScreen() {
+        DispatchQueue.main.async { [weak self] in
+            let controller = LogInVC()
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            self?.present(nav, animated: true, completion: nil)
+        }
     }
     
     func configureNavigationBar() {

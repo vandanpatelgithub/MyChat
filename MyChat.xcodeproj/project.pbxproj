@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		2B5007DB25323782000A3F4C /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5007DA25323782000A3F4C /* LogInViewModel.swift */; };
 		2B5007E025328816000A3F4C /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5007DF25328815000A3F4C /* RegistrationViewModel.swift */; };
 		2B5007EA2532BBA7000A3F4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B5007E92532BBA7000A3F4C /* GoogleService-Info.plist */; };
+		2B50080B253406A8000A3F4C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50080A253406A8000A3F4C /* AuthService.swift */; };
 		2B865FE9252A4AF30025E9EE /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FE8252A4AF30025E9EE /* LogInVC.swift */; };
 		2B865FF1252A4B070025E9EE /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FF0252A4B070025E9EE /* RegistrationVC.swift */; };
 		2B865FF6252A4E7B0025E9EE /* Exstenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FF5252A4E7B0025E9EE /* Exstenions.swift */; };
@@ -67,6 +68,7 @@
 		2B5007DA25323782000A3F4C /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		2B5007DF25328815000A3F4C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		2B5007E92532BBA7000A3F4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2B50080A253406A8000A3F4C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2B865FE8252A4AF30025E9EE /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		2B865FF0252A4B070025E9EE /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		2B865FF5252A4E7B0025E9EE /* Exstenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exstenions.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		2B403E222527F6070082D098 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2B50080A253406A8000A3F4C /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -253,7 +256,6 @@
 				FEE0AC9FC34BD884E8AEF21C /* Pods-MyChatTests.debug.xcconfig */,
 				1FD35C280F60B83BF73124A7 /* Pods-MyChatTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -501,6 +503,7 @@
 				2B5007D1252FB945000A3F4C /* InputContainerView.swift in Sources */,
 				2B865FE9252A4AF30025E9EE /* LogInVC.swift in Sources */,
 				2B5007DB25323782000A3F4C /* LogInViewModel.swift in Sources */,
+				2B50080B253406A8000A3F4C /* AuthService.swift in Sources */,
 				2B5007E025328816000A3F4C /* RegistrationViewModel.swift in Sources */,
 				2B5007D625300568000A3F4C /* CustomTextField.swift in Sources */,
 				2B865FF6252A4E7B0025E9EE /* Exstenions.swift in Sources */,

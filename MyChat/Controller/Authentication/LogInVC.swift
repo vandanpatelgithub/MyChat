@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import JGProgressHUD
 
 class LogInVC: UIViewController {
     
@@ -88,9 +89,12 @@ class LogInVC: UIViewController {
     @objc func handleLogIn() {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
+        
+        showLoader(true, withText: "Logging In")
+        AuthService.shared.logUserIn(withEmail: email, password: password) { [weak self] (result, error) in
+            self?.showLoader(false)
             if let error = error {
-                print("DEBUG: failed to sign in user with error: \(error.localizedDescription)")
+                self?.showError(error.localizedDescription)
                 return
             }
             self?.dismiss(animated: true, completion: nil)

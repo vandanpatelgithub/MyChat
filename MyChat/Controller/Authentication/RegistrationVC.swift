@@ -90,7 +90,20 @@ class RegistrationVC: UIViewController {
     @objc func handleSelectPhoto() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
+        imagePickerController.modalPresentationStyle = .overCurrentContext
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @objc func keyboardWillShow() {
+        if view.frame.origin.y == 0 {
+            view.frame.origin.y -= 88
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        if view.frame.origin.y != 0 {
+            view.frame.origin.y = 0
+        }
     }
     
     @objc func handleShowLogIn() {
@@ -117,39 +130,21 @@ class RegistrationVC: UIViewController {
               let username = usernameTextField.text?.lowercased(),
               let imageData = profileImage?.jpegData(compressionQuality: 0.3) else { return }
         
-        let filename = UUID().uuidString
-        let ref = Storage.storage().reference(withPath: "/profile_images/\(filename)")
+        let credentials = RegistrationCredentials(email: email,
+                                                  password: password,
+                                                  fullname: fullname,
+                                                  username: username,
+                                                  imageData: imageData)
         
-        ref.putData(imageData, metadata: nil) { (metadata, error) in
+        showLoader(true, withText: "Signing You Up")
+        AuthService.shared.createUser(withCredentials: credentials) { [weak self] (error) in
+            self?.showLoader(false)
             if let error = error {
-                print("DEBUG: failed to upload the image with error \(error.localizedDescription)")
+                self?.showError(error.localizedDescription)
                 return
             }
-            
-            ref.downloadURL { (url, error) in
-                if let error = error {
-                    print("DEBUG: failed to download the url with error \(error.localizedDescription)")
-                    return
-                }
-                guard let profileImageURL = url?.absoluteString else { return }
-                
-                Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-                    if let error = error {
-                        print("DEBUG: failed to create the user with error \(error.localizedDescription)")
-                        return
-                    }
-                    guard let uid = result?.user.uid else { return }
-                    
-                    let data = ["email": email, "fullName": fullname, "profileImageURL": profileImageURL, "uid": uid, "username": username] as [String: Any]
-                    
-                    Firestore.firestore().collection("users").document(uid).setData(data) { [weak self] (error) in
-                        if let error = error {
-                            print("DEBUG: failed to upload the user data with error \(error.localizedDescription)")
-                            return
-                        }
-                        self?.dismiss(animated: true, completion: nil)
-                    }
-                }
+            DispatchQueue.main.async { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -185,6 +180,10 @@ class RegistrationVC: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func isFormValid() {
@@ -208,7 +207,6 @@ extension RegistrationVC: UIImagePickerControllerDelegate, UINavigationControlle
         plusPhotoButton.layer.borderColor = UIColor.white.cgColor
         plusPhotoButton.layer.borderWidth = 2.0
         plusPhotoButton.layer.cornerRadius = 100
-        
-        dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
 }

@@ -15,6 +15,32 @@ struct RegistrationCredentials {
     let imageData: Data
 }
 
+struct User {
+    let email: String
+    let fullname: String
+    let imageURL: String
+    let uid: String
+    let username: String
+    
+    init(credentials: RegistrationCredentials, imageURL: String, uid: String) {
+        email = credentials.email
+        fullname = credentials.fullname
+        username = credentials.username
+        self.imageURL = imageURL
+        self.uid = uid
+    }
+    
+    var toDict: [String: Any] {
+        return [
+            "email": email,
+            "fullName": fullname,
+            "profileImageURL": imageURL,
+            "uid": uid,
+            "username": username
+        ]
+    }
+}
+
 struct AuthService {
     static let shared = AuthService()
     
@@ -28,14 +54,12 @@ struct AuthService {
         
         ref.putData(credentials.imageData, metadata: nil) { (metadata, error) in
             if let error = error {
-                print("DEBUG: failed to upload the image with error \(error.localizedDescription)")
                 completion(error)
                 return
             }
             
             ref.downloadURL { (url, error) in
                 if let error = error {
-                    print("DEBUG: failed to download the url with error \(error.localizedDescription)")
                     completion(error)
                     return
                 }
@@ -47,7 +71,6 @@ struct AuthService {
                 
                 Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { (result, error) in
                     if let error = error {
-                        print("DEBUG: failed to create the user with error \(error.localizedDescription)")
                         completion(error)
                         return
                     }
@@ -56,13 +79,9 @@ struct AuthService {
                         return
                     }
                     
-                    let data = ["email": credentials.email,
-                                "fullName": credentials.fullname,
-                                "profileImageURL": profileImageURL,
-                                "uid": uid,
-                                "username": credentials.username] as [String: Any]
+                    let user = User(credentials: credentials, imageURL: profileImageURL, uid: uid)
                     
-                    Firestore.firestore().collection("users").document(uid).setData(data, completion: completion)
+                    Firestore.firestore().collection("users").document(uid).setData(user.toDict, completion: completion)
                 }
             }
         }

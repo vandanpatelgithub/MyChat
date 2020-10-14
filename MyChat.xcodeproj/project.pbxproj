@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0B535125374DAF004D3AB1 /* MyChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B535025374DAF004D3AB1 /* MyChatUITests.swift */; };
+		2B0B537425375304004D3AB1 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B537325375304004D3AB1 /* AuthViewModelTests.swift */; };
 		2B403DE92527CC5E0082D098 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403DE82527CC5E0082D098 /* AppDelegate.swift */; };
 		2B403DEB2527CC5E0082D098 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403DEA2527CC5E0082D098 /* SceneDelegate.swift */; };
 		2B403DF22527CC600082D098 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B403DF12527CC600082D098 /* Assets.xcassets */; };
 		2B403DF52527CC600082D098 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B403DF32527CC600082D098 /* LaunchScreen.storyboard */; };
 		2B403E002527CC600082D098 /* MyChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403DFF2527CC600082D098 /* MyChatTests.swift */; };
-		2B403E0B2527CC600082D098 /* MyChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403E0A2527CC600082D098 /* MyChatUITests.swift */; };
 		2B403E252527F6600082D098 /* ConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403E242527F6600082D098 /* ConversationsVC.swift */; };
 		2B403E3E2527FB0A0082D098 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B403E3D2527FB0A0082D098 /* Main.storyboard */; };
 		2B5007D1252FB945000A3F4C /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5007D0252FB945000A3F4C /* InputContainerView.swift */; };
@@ -21,6 +22,8 @@
 		2B5007E025328816000A3F4C /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5007DF25328815000A3F4C /* RegistrationViewModel.swift */; };
 		2B5007EA2532BBA7000A3F4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B5007E92532BBA7000A3F4C /* GoogleService-Info.plist */; };
 		2B50080B253406A8000A3F4C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B50080A253406A8000A3F4C /* AuthService.swift */; };
+		2B50081A2537478C000A3F4C /* AuthServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5008192537478C000A3F4C /* AuthServiceTests.swift */; };
+		2B500822253747D5000A3F4C /* ModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B500821253747D5000A3F4C /* ModelMocks.swift */; };
 		2B865FE9252A4AF30025E9EE /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FE8252A4AF30025E9EE /* LogInVC.swift */; };
 		2B865FF1252A4B070025E9EE /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FF0252A4B070025E9EE /* RegistrationVC.swift */; };
 		2B865FF6252A4E7B0025E9EE /* Exstenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B865FF5252A4E7B0025E9EE /* Exstenions.swift */; };
@@ -49,6 +52,8 @@
 /* Begin PBXFileReference section */
 		09EBEABFEE05448D4350A70D /* Pods_MyChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FD35C280F60B83BF73124A7 /* Pods-MyChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChatTests.release.xcconfig"; path = "Target Support Files/Pods-MyChatTests/Pods-MyChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		2B0B535025374DAF004D3AB1 /* MyChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatUITests.swift; sourceTree = "<group>"; };
+		2B0B537325375304004D3AB1 /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
 		2B403DE52527CC5E0082D098 /* MyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B403DE82527CC5E0082D098 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B403DEA2527CC5E0082D098 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +64,6 @@
 		2B403DFF2527CC600082D098 /* MyChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTests.swift; sourceTree = "<group>"; };
 		2B403E012527CC600082D098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B403E062527CC600082D098 /* MyChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B403E0A2527CC600082D098 /* MyChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatUITests.swift; sourceTree = "<group>"; };
 		2B403E0C2527CC600082D098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B403E242527F6600082D098 /* ConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsVC.swift; sourceTree = "<group>"; };
 		2B403E3D2527FB0A0082D098 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		2B5007DF25328815000A3F4C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		2B5007E92532BBA7000A3F4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B50080A253406A8000A3F4C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2B5008192537478C000A3F4C /* AuthServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTests.swift; sourceTree = "<group>"; };
+		2B500821253747D5000A3F4C /* ModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMocks.swift; sourceTree = "<group>"; };
 		2B865FE8252A4AF30025E9EE /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		2B865FF0252A4B070025E9EE /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		2B865FF5252A4E7B0025E9EE /* Exstenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exstenions.swift; sourceTree = "<group>"; };
@@ -109,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0B53712537529F004D3AB1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B0B537325375304004D3AB1 /* AuthViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2B403DDC2527CC5E0082D098 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +168,8 @@
 		2B403DFE2527CC600082D098 /* MyChatTests */ = {
 			isa = PBXGroup;
 			children = (
+				2B0B53712537529F004D3AB1 /* ViewModel */,
+				2B50081725374751000A3F4C /* AuthService */,
 				2B403DFF2527CC600082D098 /* MyChatTests.swift */,
 				2B403E012527CC600082D098 /* Info.plist */,
 			);
@@ -163,8 +179,8 @@
 		2B403E092527CC600082D098 /* MyChatUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2B403E0A2527CC600082D098 /* MyChatUITests.swift */,
 				2B403E0C2527CC600082D098 /* Info.plist */,
+				2B0B535025374DAF004D3AB1 /* MyChatUITests.swift */,
 			);
 			path = MyChatUITests;
 			sourceTree = "<group>";
@@ -225,6 +241,23 @@
 				2B5007DF25328815000A3F4C /* RegistrationViewModel.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		2B50081725374751000A3F4C /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				2B5008182537475A000A3F4C /* Mocks */,
+				2B5008192537478C000A3F4C /* AuthServiceTests.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
+		2B5008182537475A000A3F4C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2B500821253747D5000A3F4C /* ModelMocks.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		2B865FE7252A36050025E9EE /* Authentication */ = {
@@ -338,6 +371,7 @@
 					};
 					2B403E052527CC600082D098 = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1200;
 						TestTargetID = 2B403DE42527CC5E0082D098;
 					};
 				};
@@ -516,7 +550,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0B537425375304004D3AB1 /* AuthViewModelTests.swift in Sources */,
 				2B403E002527CC600082D098 /* MyChatTests.swift in Sources */,
+				2B500822253747D5000A3F4C /* ModelMocks.swift in Sources */,
+				2B50081A2537478C000A3F4C /* AuthServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B403E0B2527CC600082D098 /* MyChatUITests.swift in Sources */,
+				2B0B535125374DAF004D3AB1 /* MyChatUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +799,7 @@
 			baseConfigurationReference = A248A198AE17FE6595F3858B /* Pods-MyChat-MyChatUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EHKQGN5358;
 				INFOPLIST_FILE = MyChatUITests/Info.plist;
@@ -772,6 +810,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vandanpatel.MyChatUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MyChat;
@@ -783,6 +822,7 @@
 			baseConfigurationReference = C7089AE2E11884ABF58D0BB7 /* Pods-MyChat-MyChatUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EHKQGN5358;
 				INFOPLIST_FILE = MyChatUITests/Info.plist;

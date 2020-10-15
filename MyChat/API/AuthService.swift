@@ -17,24 +17,32 @@ struct RegistrationCredentials {
 
 struct User {
     let email: String
-    let fullname: String
-    let imageURL: String
+    let fullName: String
+    let profileImageURL: String
     let uid: String
     let username: String
     
     init(credentials: RegistrationCredentials, imageURL: String, uid: String) {
         email = credentials.email
-        fullname = credentials.fullname
+        fullName = credentials.fullname
         username = credentials.username
-        self.imageURL = imageURL
+        self.profileImageURL = imageURL
         self.uid = uid
+    }
+    
+    init(dictionary: [String: Any]) {
+        email = dictionary["email"] as? String ?? ""
+        fullName = dictionary["fullName"] as? String ?? ""
+        profileImageURL = dictionary["profileImageURL"] as? String ?? ""
+        uid = dictionary["uid"] as? String ?? ""
+        username = dictionary["username"] as? String ?? ""
     }
     
     var toDict: [String: Any] {
         return [
             "email": email,
-            "fullName": fullname,
-            "profileImageURL": imageURL,
+            "fullName": fullName,
+            "profileImageURL": profileImageURL,
             "uid": uid,
             "username": username
         ]

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2B0B535125374DAF004D3AB1 /* MyChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B535025374DAF004D3AB1 /* MyChatUITests.swift */; };
 		2B0B537425375304004D3AB1 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B537325375304004D3AB1 /* AuthViewModelTests.swift */; };
+		2B0B53B3253796DC004D3AB1 /* NewMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B53B2253796DC004D3AB1 /* NewMessageVC.swift */; };
+		2B0B53B82537CC0F004D3AB1 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B53B72537CC0F004D3AB1 /* UserCell.swift */; };
+		2B0B53BD2537F813004D3AB1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B53BC2537F813004D3AB1 /* Service.swift */; };
 		2B403DE92527CC5E0082D098 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403DE82527CC5E0082D098 /* AppDelegate.swift */; };
 		2B403DEB2527CC5E0082D098 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B403DEA2527CC5E0082D098 /* SceneDelegate.swift */; };
 		2B403DF22527CC600082D098 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B403DF12527CC600082D098 /* Assets.xcassets */; };
@@ -54,6 +57,9 @@
 		1FD35C280F60B83BF73124A7 /* Pods-MyChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChatTests.release.xcconfig"; path = "Target Support Files/Pods-MyChatTests/Pods-MyChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		2B0B535025374DAF004D3AB1 /* MyChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatUITests.swift; sourceTree = "<group>"; };
 		2B0B537325375304004D3AB1 /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
+		2B0B53B2253796DC004D3AB1 /* NewMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageVC.swift; sourceTree = "<group>"; };
+		2B0B53B72537CC0F004D3AB1 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		2B0B53BC2537F813004D3AB1 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2B403DE52527CC5E0082D098 /* MyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B403DE82527CC5E0082D098 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B403DEA2527CC5E0082D098 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 			children = (
 				2B5007D0252FB945000A3F4C /* InputContainerView.swift */,
 				2B5007D525300568000A3F4C /* CustomTextField.swift */,
+				2B0B53B72537CC0F004D3AB1 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +221,7 @@
 			children = (
 				2B865FE7252A36050025E9EE /* Authentication */,
 				2B403E242527F6600082D098 /* ConversationsVC.swift */,
+				2B0B53B2253796DC004D3AB1 /* NewMessageVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				2B50080A253406A8000A3F4C /* AuthService.swift */,
+				2B0B53BC2537F813004D3AB1 /* Service.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -533,6 +542,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B403DE92527CC5E0082D098 /* AppDelegate.swift in Sources */,
+				2B0B53BD2537F813004D3AB1 /* Service.swift in Sources */,
+				2B0B53B82537CC0F004D3AB1 /* UserCell.swift in Sources */,
+				2B0B53B3253796DC004D3AB1 /* NewMessageVC.swift in Sources */,
 				2B403DEB2527CC5E0082D098 /* SceneDelegate.swift in Sources */,
 				2B5007D1252FB945000A3F4C /* InputContainerView.swift in Sources */,
 				2B865FE9252A4AF30025E9EE /* LogInVC.swift in Sources */,

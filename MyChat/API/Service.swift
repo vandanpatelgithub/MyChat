@@ -22,4 +22,17 @@ struct Service {
             completion(users)
         }
     }
+    
+    static func fetchUser(withUID uid: String, completion: @escaping (User?, Error?) -> ()) {
+        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, error) in
+            if let error = error {
+                completion(nil, error)
+            }
+            
+            if let data = snapshot?.data() {
+                let user = User(dictionary: data)
+                completion(user, nil)
+            }
+        }
+    }
 }

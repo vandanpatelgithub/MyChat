@@ -44,6 +44,8 @@ class UserCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addProfileImage()
         addUsernameFullnameLabels()
+        accessoryType = .disclosureIndicator
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {

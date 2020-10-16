@@ -10,6 +10,8 @@ import Firebase
 
 private let reusableIdentifier = "ConversationCell"
 
+var loggedInUser: User?
+
 class ConversationsVC: UIViewController {
     
     // MARK: - Properties
@@ -43,6 +45,7 @@ class ConversationsVC: UIViewController {
     
     @objc func didTapNewMessage() {
         let controller = NewMessageVC()
+        controller.delegate = self
         let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true, completion: nil)
@@ -50,10 +53,20 @@ class ConversationsVC: UIViewController {
     
     // MARK: - API
     func authenticateUser() {
-        if Auth.auth().currentUser?.uid == nil  {
-            presentLogInScreen()
+        if let uid = Auth.auth().currentUser?.uid {
+            if loggedInUser == nil {
+                Service.fetchUser(withUID: uid) { [weak self] (user, error) in
+                    if let error = error {
+                        self?.showError(error.localizedDescription)
+                    }
+                    
+                    if let user = user {
+                        loggedInUser = user
+                    }
+                }
+            }
         } else {
-            print("DEBUG: user is logged in. Configure controller")
+            presentLogInScreen()
         }
     }
     
@@ -132,5 +145,25 @@ extension ConversationsVC: UITableViewDataSource {
 extension ConversationsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected \(indexPath.row)")
+    }
+}
+
+// MARK: - NewMessageVCDelegate
+extension ConversationsVC: NewMessageVCDelegate {
+    func controller(_ controller: NewMessageVC, wantsToStartChatWith user: User) {
+        controller.dismiss(animated: true, completion: nil)
+        let currentUser = Sender(senderId: "123", displayName: "Vandan Patel", profileImageURL: loggedInUser?.profileImageURL)
+        let otherUser = Sender(senderId: "456", displayName: "Arya Patel", profileImageURL: user.profileImageURL)
+        let chatVC = ChatVC(currentUser: currentUser,
+                            otherUser: otherUser,
+                            messages: [Message(sender: currentUser,
+                                               messageId: "1",
+                                               sentDate: Date(),
+                                               kind: .text("Hello, How are you?")),
+                                       Message(sender: otherUser,
+                                               messageId: "2",
+                                               sentDate: Date(),
+                                               kind: .text("I am fine, papa!"))])
+        navigationController?.pushViewController(chatVC, animated: true)
     }
 }

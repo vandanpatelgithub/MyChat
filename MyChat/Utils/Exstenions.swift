@@ -124,5 +124,9 @@ extension UIViewController {
             show ? UIViewController.hud.show(in: self.view) : UIViewController.hud.dismiss()
         }
     }
+    
+    func getCurrentUser() {
+        
+    }
 }
 

@@ -12,6 +12,7 @@ target 'MyChat' do
   pod 'Firebase/Firestore'
   pod 'SDWebImage'
   pod 'JGProgressHUD'
+  pod 'MessageKit'
 
   target 'MyChatTests' do
     inherit! :search_paths
